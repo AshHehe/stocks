@@ -48,21 +48,25 @@ main {
     padding: 20px;
 }
 
+/* Stat box adjustments (balance, profit, etc.) */
 .stats-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller boxes */
+    gap: 5px; /* Reduced gap between boxes */
 }
 
 .stat {
     background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 8px; /* Smaller padding inside the boxes */
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 14px; /* Smaller text size */
 }
 
-hr {
-    border: 1px solid #ccc;
+/* Chart adjustments */
+canvas {
+    max-height: 120px; /* Smaller chart */
+    width: 100%; /* Ensure it still scales width properly */
 }
 
 .suggestions {
