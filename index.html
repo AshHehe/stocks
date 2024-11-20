@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Stock Portfolio</title>
+    <title>eToro</title>
     <link rel="stylesheet" href="styles.css">
     <script src="chart.min.js"></script> <!-- Include Chart.js -->
 </head>
@@ -11,12 +11,13 @@
     <header>
         <h1>My Fake Stock Portfolio</h1>
         <nav>
-            <a href="#dashboard">Dashboard</a>
-            <a href="#buy-sell">Buy & Sell</a>
+            <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+            <a href="#" onclick="showPage('buy-sell')">Buy & Sell</a>
         </nav>
     </header>
 
     <main>
+        <!-- Dashboard Section -->
         <section id="dashboard">
             <h2>Dashboard</h2>
             <div class="stat">
@@ -29,13 +30,20 @@
             </div>
         </section>
 
-        <section id="buy-sell">
-            <h2>View Stock Data</h2>
+        <!-- Buy & Sell Section -->
+        <section id="buy-sell" style="display: none;">
+            <h2>Buy & Sell Stocks</h2>
             <div class="form-group">
                 <label for="stock-name">Stock Symbol:</label>
-                <input type="text" id="stock-symbol" placeholder="e.g., AAPL">
+                <input type="text" id="stock-symbol" oninput="suggestStocks()" placeholder="e.g., AAPL">
+                <ul id="suggestions" class="suggestions"></ul>
             </div>
-            <button onclick="fetchStockData()">View Data</button>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" placeholder="e.g., 500">
+            </div>
+            <button onclick="buyStock()">Buy</button>
+            <button onclick="sellStock()">Sell</button>
             <canvas id="stockChart" width="400" height="200"></canvas>
         </section>
     </main>
