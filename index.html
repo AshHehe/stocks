@@ -3,78 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eToro</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stock Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="chart.min.js"></script> <!-- Include Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+
+    <!-- Header Section -->
     <header>
-        <!-- Logo -->
-        <a href="#" class="logo">
-            <img src="https://i.imgur.com/lSFQvSD.png" alt="Logo">
-        </a>
+        <div class="logo">
+            <img src="https://i.imgur.com/lSFQvSD.png" alt="Logo" height="50">
+        </div>
         <nav>
-            <a href="#" onclick="showPage('dashboard')">Dashboard</a>
-            <a href="#" class="disabled-link">Company</a>
-            <a href="#" class="disabled-link">Education</a>
+            <a href="#">Dashboard</a>
+            <a href="#">Company</a>
+            <a href="#">Education</a>
         </nav>
-        <!-- Profile with User Picture -->
         <div class="profile">
-            <img src="https://cdn.discordapp.com/attachments/1308620225326878720/1308911787856367746/MOMKEY.png?ex=673faa98&is=673e5918&hm=1446805d6ee22c8250cb71d0a6a2f8a89311bd0733475deb5ef36cdc63b303a2" alt="Profile Picture" class="profile-pic">
-            <span class="profile-name">Nathan Beck</span>
+            <img src="https://cdn.discordapp.com/attachments/1308620225326878720/1308911787856367746/MOMKEY.png?ex=673faa98&is=673e5918&hm=1446805d6ee22c8250cb71d0a6a2f8a89311bd0733475deb5ef36cdc63b303a2" alt="Profile" height="50" width="50" style="border-radius: 50%;">
+            <span>Nathan Beck</span>
         </div>
     </header>
 
-    <main>
-        <!-- Dashboard Section -->
-        <section id="dashboard">
-            <h2>Dashboard</h2>
-            <div class="stats-container">
-                <div class="stat">
-                    <p>Balance:</p>
-                    <p id="balance">$4,391</p>
-                </div>
-                <hr>
-                <div class="stat">
-                    <p>Profit:</p>
-                    <p id="profit" class="profit-green">+$8,992</p>
-                </div>
-                <hr>
-                <div class="stat">
-                    <p>Total Trades Made:</p>
-                    <p id="total-trades">154</p>
-                </div>
-                <hr>
-                <div class="stat">
-                    <p>Total Investments:</p>
-                    <p id="total-investments">$7,500</p>
-                </div>
-                <hr>
-                <div class="stat">
-                    <p>7 Days Profit Chart:</p>
-                    <canvas id="profitChart" width="400" height="200"></canvas>
-                </div>
+    <!-- Main Dashboard Section -->
+    <div class="dashboard">
+        <!-- Stats Section (Left) -->
+        <div class="stats-container">
+            <div class="stat">
+                <h3>Balance</h3>
+                <p>$4,391</p>
             </div>
-        </section>
+            <div class="stat">
+                <h3>Profit</h3>
+                <p class="profit" style="color: green;">$8,992</p>
+            </div>
+            <div class="stat">
+                <h3>Total Trades</h3>
+                <p>342</p>
+            </div>
+            <div class="stat">
+                <h3>Open Positions</h3>
+                <p>5</p>
+            </div>
+            <div class="stat">
+                <h3>Trades This Month</h3>
+                <p>32</p>
+            </div>
+        </div>
 
-        <!-- Buy & Sell Section (Buttons Disabled) -->
-        <section id="buy-sell" style="display: none;">
-            <h2>Buy & Sell Stocks</h2>
-            <div class="form-group">
-                <label for="stock-name">Stock Symbol:</label>
-                <input type="text" id="stock-symbol" oninput="suggestStocks()" placeholder="e.g., AAPL">
-                <ul id="suggestions" class="suggestions"></ul>
-            </div>
-            <div class="form-group">
-                <label for="amount">Amount:</label>
-                <input type="number" id="amount" placeholder="e.g., 500">
-            </div>
-            <button onclick="buyStock()">Buy</button>
-            <button onclick="sellStock()">Sell</button>
-            <canvas id="stockChart" width="400" height="200"></canvas>
-        </section>
-    </main>
+        <!-- Chart Section (Right) -->
+        <div class="chart-container">
+            <canvas id="profitChart"></canvas>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Chart Data (Fake Profit Data)
+        const ctx = document.getElementById('profitChart').getContext('2d');
+        const profitChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['7d Ago', '6d Ago', '5d Ago', '4d Ago', '3d Ago', '2d Ago', 'Yesterday'],
+                datasets: [{
+                    label: 'Profit Over Last 7 Days',
+                    data: [6000, 6500, 7200, 7500, 8000, 8500, 8992],
+                    borderColor: '#32CD32',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>
