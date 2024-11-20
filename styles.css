@@ -1,95 +1,60 @@
+/* General adjustments for spacing */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
 }
 
+/* Header adjustments */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 15px; /* Reduced padding */
     background-color: #32CD32;
     color: white;
 }
 
 header a {
-    color: white;
-    text-decoration: none;
-    margin-right: 15px;
+    margin-right: 10px; /* Reduced space between links */
 }
 
-header .logo img {
-    width: 100px;
-}
-
-header .profile {
-    display: flex;
-    align-items: center;
-}
-
-header .profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-header .profile-name {
-    font-weight: bold;
-}
-
-.disabled-link {
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-main {
-    padding: 20px;
-}
-
+/* Stats container adjustments */
 .stats-container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 10px; /* Reduced gap between sections */
 }
 
+/* Stat box adjustments */
 .stat {
     background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Reduced padding inside stat boxes */
+    border-radius: 5px; /* Slightly sharper corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Less shadow */
 }
 
+/* Divider adjustments */
 hr {
-    border: 1px solid #ccc;
+    border: 0.5px solid #ccc; /* Thinner divider line */
+    margin: 5px 0; /* Less space above and below */
 }
 
+/* Suggestions dropdown adjustments */
 .suggestions {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    max-height: 100px;
-    overflow-y: auto;
-    position: absolute;
-    width: calc(100% - 20px);
+    padding: 5px; /* Reduced padding */
+    margin-top: 2px; /* Smaller margin */
+    max-height: 80px; /* Slightly smaller max height */
 }
 
-.suggestions li {
-    padding: 10px;
-    cursor: pointer;
+/* Profile section adjustments */
+header .profile {
+    gap: 5px; /* Reduced space between profile picture and name */
 }
 
-.suggestions li:hover {
-    background-color: #f3f3f3;
-}
-
-.profit-green {
-    color: green;
-}
-
-.profit-red {
-    color: red;
+/* Chart adjustments */
+canvas {
+    max-height: 150px; /* Reduced height of the chart */
 }
