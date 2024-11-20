@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Stock Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="chart.min.js"></script> <!-- Include Chart.js -->
+</head>
+<body>
+    <header>
+        <h1>My Fake Stock Portfolio</h1>
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#buy-sell">Buy & Sell</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="stat">
+                <p>Balance:</p>
+                <p id="balance">$10,000</p>
+            </div>
+            <div class="stat">
+                <p>Profit:</p>
+                <p id="profit" class="profit-green">+$1,200</p>
+            </div>
+        </section>
+
+        <section id="buy-sell">
+            <h2>View Stock Data</h2>
+            <div class="form-group">
+                <label for="stock-name">Stock Symbol:</label>
+                <input type="text" id="stock-symbol" placeholder="e.g., AAPL">
+            </div>
+            <button onclick="fetchStockData()">View Data</button>
+            <canvas id="stockChart" width="400" height="200"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
