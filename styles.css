@@ -48,25 +48,38 @@ main {
     padding: 20px;
 }
 
-/* Stat box adjustments (balance, profit, etc.) */
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller boxes */
-    gap: 5px; /* Reduced gap between boxes */
+/* Layout for the dashboard */
+.dashboard {
+    display: flex;
+    justify-content: space-between; /* Aligns the stats on the left and chart on the right */
+    align-items: flex-start;
 }
 
+/* Stats container adjustments (left side) */
+.stats-container {
+    display: flex;
+    flex-direction: column; /* Stacks the stats vertically */
+    gap: 10px; /* Adjusted spacing between boxes */
+    width: 40%; /* Takes up 40% of the width */
+}
+
+/* Stat box adjustments */
 .stat {
     background-color: white;
-    padding: 8px; /* Smaller padding inside the boxes */
+    padding: 10px; /* Slightly larger padding */
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     font-size: 14px; /* Smaller text size */
 }
 
-/* Chart adjustments */
+/* Chart adjustments (right side) */
+.chart-container {
+    width: 55%; /* Takes up 55% of the width, next to stats */
+}
+
 canvas {
-    max-height: 120px; /* Smaller chart */
-    width: 100%; /* Ensure it still scales width properly */
+    max-height: 150px; /* Adjust height of the chart */
+    width: 100%; /* Full width */
 }
 
 .suggestions {
